@@ -1,0 +1,12 @@
+body {
+    color: brown;
+}
+
+p{
+   color: steelblue; 
+}
+
+.color{
+    color:blueviolet;
+    font-size: 12px; 
+}
