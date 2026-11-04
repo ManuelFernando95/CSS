@@ -1,23 +1,72 @@
+*{
+   box-sizing: border-box;
+}
+
 body {
+  font-family : sans-serif;
+  display: block;
+  padding: 20px;
   font-family: sans-serif;
-  color: #333333; 
+  color: #19ca98; 
+}
+header {
+    background-image: url('pexels-fidan-nazim-qizi-134456769-39083618.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ef4a4a; 
+    padding: 40px 20px;
 }
 
 header nav ul li a {
-  color: #1a73e8; 
+  color: #267ae8; 
   text-decoration: none;
+}
+
+aside {
+    background-color: #bbf16f; /* Naranja muy pálido */
+    padding: 20px;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav ul, aside ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
 }
 
 aside ul li a {
-  color: #e67e22; 
+  color: #dd8233; 
   text-decoration: none;
 }
 
+main {
+    background-color: #ce2a94; 
+    padding: 20px;
+}
+
+article {
+    border: 0px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 15px;
+}
+
+footer {
+    background-color: #8fc0f2;
+    color: #e84a4a;
+    padding: 20px;
+}
+
 footer a {
-  color: #7f8c8d;
+  color: #eb6ae0;
   text-decoration: none;
   margin-right: 10px;
 }
+
 
 .btn-comprar {
   color: #ffffff; 
@@ -26,6 +75,7 @@ footer a {
   text-decoration: none;
   display: inline-block;
   border-radius: 4px;
+  margin-top: 10px;
 }
 
 .btn-destacado {
