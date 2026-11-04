@@ -58,3 +58,37 @@ Fuerza bruta. Pisa la cascada y rompe la flexibilidad del archivo.
 
 ## 📌 Conclusión del Taller
 Se eliminaron todos los selectores por `#id` de la hoja de estilos, reemplazándolos por un sistema plano de clases y etiquetas. Esto permite resolver colisiones visuales de forma orgánica sin recurrir a malas prácticas como `!important`.
+
+
+# 📦 Práctica: Modelo de Caja y Estilos CSS
+
+## 🚀 Implementación Técnica
+* **Segmentación:** Colores de fondo (`background-color`) distintos en `<header>`, `<main>`, `<aside>` y `<footer>`.
+* **Contenedores de Productos (`<article>`):**
+  * `padding`: Aire interior para separar textos y enlaces de los bordes.
+  * `margin`: Campo de fuerza exterior para evitar colisiones entre tarjetas.
+* **Encabezado:** Imagen de fondo en `<header>` con `background-image`, optimizada con `background-size: cover` y `background-position: center`.
+* **Auditoría:** Verificación matemática de los valores usando las **DevTools** (pestaña *Computed*).
+
+---
+
+## 🔍 Hallazgos: El Modelo de Caja
+
+### 1. Diferencia entre Margin y Padding
+* **Padding:** Espacio interno que empuja el contenido hacia adentro desde el borde.
+* **Margin:** Espacio externo que empuja a otras cajas para crear separación entre elementos.
+
+### 2. Importancia de `box-sizing: border-box`
+Es obligatorio porque incluye el `padding` y el `border` dentro del ancho total (`width`) del elemento. Esto evita que las cajas se expandan de más y rompan la maquetación.
+
+### 3. Efecto entre Elementos Hermanos
+Un margen grande en un elemento empuja físicamente a sus hermanos en el flujo de la página, lo que puede provocar saltos de línea o reacomodos si el espacio del contenedor padre se agota.
+
+---
+
+## 💾 Respaldo y Despliegue
+```bash
+git add .
+git commit -m "feat(ui): implementar modelo de caja y backgrounds"
+git push origin feature/modelo-caja
+```
