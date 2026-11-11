@@ -92,3 +92,55 @@ git add .
 git commit -m "feat(ui): implementar modelo de caja y backgrounds"
 git push origin feature/modelo-caja
 ```
+
+## 🎨 Hallazgos: Centralización de Identidad Visual y Espaciado
+
+En esta fase trabajé en la rama `feature/identidad-visual` para limpiar y organizar el código CSS del Catálogo de Productos. La idea principal fue dejar de repetir colores y medidas a mano en cada etiqueta y juntar todo en un solo lugar usando `:root`.
+
+### 📋 1. Variables que declaré en mi CSS
+
+Para que toda la página tuviera el mismo estilo y orden, creé estas variables al principio de mi hoja de estilos:
+
+**Colores 🎨**
+* `--color-primario`: Es el color principal de la página, lo usé en los botones importantes, títulos destacados y enlaces.
+* `--color-secundario`: Es un tono de apoyo para detalles como bordes, etiquetas o cuando pasas el mouse por encima de un botón.
+* `--color-fondo`: El color base que cubre el fondo general de la pantalla y los contenedores.
+* `--color-texto`: El color oscuro que usé para que todos los textos y precios se lean bien y sin cansar la vista.
+
+**Tipografía ✍️**
+* `--fuente-principal`: La letra que traje desde Google Fonts para que toda la web use exactamente el mismo estilo de texto.
+
+**Espaciados 📏**
+* `--espaciado-pequeno: 8px;` Para separaciones cortas, como el espacio entre un ícono y su texto.
+* `--espaciado-medio: 16px;` Es el relleno (`padding`) estándar que le puse por dentro a las tarjetas de los productos.
+* `--espaciado-grande: 24px;` Lo usé para los márgenes (`margin`) grandes que separan una sección de otra.
+
+### 💡 2. ¿Por qué es mejor reutilizar medidas que inventarlas cada vez?
+
+* **Todo se ve alineado y parejo:** Al usar siempre las mismas tres medidas, todas las tarjetas y botones respiran igual. No queda un cuadro más pegado que otro ni nada se ve torcido.
+* **Ahorras tiempo:** No tienes que ponerte a adivinar cuántos píxeles ponerle a cada caja nueva; simplemente eliges entre pequeño, medio o grande y listo.
+* **Cambios sin dolor de cabeza:** Si mañana decido que las tarjetas necesitan un poco más de espacio por dentro, solo cambio el número en `:root` y toda la página se actualiza sola en un segundo.
+
+### 🛡️ 3. ¿Cómo evita el `:root` que el diseño se dañe cuando el proyecto crece?
+
+Cuando un archivo CSS se vuelve muy largo, es muy fácil perder el control. Tener todo en `:root` me ayuda por varias razones:
+
+* **Evita el desorden de valores parecidos:** Antes pasaba que en un lado ponía `15px` y en otro `16px` por descuido, o usaba dos tonos de azul casi iguales sin darme cuenta. Con las variables eso se acaba.
+* **Un solo lugar manda:** Como todos los elementos toman su estilo de `:root` usando `var()`, cualquier tarjeta o sección nueva que agregue en el futuro va a mantener automáticamente los mismos colores y tamaños sin romper el diseño que ya funciona.
+
+
+## 📝 Hallazgos: Pseudoclases y Pseudoelementos
+
+### 1. Diferencia entre pseudoclases y pseudoelementos 🔍
+Aunque se escriben parecido, cumplen funciones muy distintas en la página:
+* Las pseudoclases como :hover, :active o :focus reaccionan a lo que hace el usuario 🖱️. No agregan nada nuevo al código, simplemente cambian el estilo de un elemento de forma temporal cuando alguien pasa el mouse por encima, hace clic o se mueve con el teclado.
+* Los pseudoelementos como ::before y ::after sirven para insertar contenido visual extra desde el CSS (como viñetas, líneas o etiquetas) antes o después del contenido real ✨, sin tener que escribir ese texto o adorno en el HTML.
+
+### 2. Importancia de :focus para la accesibilidad ♿
+No todas las personas navegan por internet usando un ratón; muchas usan el teclado (con la tecla Tab ⌨️) o herramientas de asistencia. Aplicar estilos claros en el estado :focus, como un borde o contorno visible, permite que el usuario sepa exactamente en qué enlace o botón está parado. Si quitamos o ignoramos este estado, la persona se pierde en la pantalla y la página deja de ser accesible.
+
+### 3. Por qué usar ::before y ::after en lugar de llenar el HTML de etiquetas vacías 🧹
+Inyectar adornos desde CSS es una buena práctica porque mantiene el código ordenado y fácil de mantener:
+* El archivo HTML queda limpio y solo se encarga de la estructura y el contenido real, sin llenarse de etiquetas div o span vacías que solo sirven para decorar 📄.
+* Si más adelante quiero cambiar el texto de una etiqueta de "Oferta" por "Nuevo" en veinte productos distintos, solo cambio una línea en el CSS en lugar de editar tarjeta por tarjeta en el HTML ⚡.
+* Los lectores de pantalla no se confunden leyendo elementos que son puramente decorativos.
