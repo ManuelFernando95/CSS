@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: var(--color-texto);
     background-color: var(--color-fondo);
     line-height: 1.6;
@@ -25,7 +25,7 @@ body {
 }
 
 header {
-    background-image: linear-gradient(rgba(10, 10, 15, 0.5), rgba(10, 10, 15, 0.8)), url('pexels-fidan-nazim-qizi-134456769-39083618.jpg');
+    background-image: linear-gradient(rgba(10, 10, 15, 0.5), rgba(10, 10, 15, 0.8)), url("pexels-fidan-nazim-qizi-134456769-39083618.jpg");
     background-size: cover;
     background-position: center;
     padding: 40px 20px;
@@ -46,7 +46,9 @@ header nav ul li a {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
 }
 
 header nav ul li a:hover {
@@ -108,7 +110,10 @@ article {
     border-radius: 8px;
     padding: 25px;
     margin-bottom: 25px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
 
 article:hover {
@@ -198,7 +203,9 @@ footer a {
     color: var(--color-primario);
     text-decoration: none;
     margin: 0 10px;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
 }
 
 footer a:hover {
