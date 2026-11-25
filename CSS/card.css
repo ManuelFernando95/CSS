@@ -1,0 +1,56 @@
+.main {
+    padding: 20px 0;
+}
+
+.card {
+    background-color: var(--color-tarjeta);
+    border: 1px solid #2a2a3a;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primario);
+    box-shadow: 0 5px 20px rgba(56, 189, 248, 0.1);
+}
+
+.card__title {
+    color: var(--color-primario);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.card--after .card__title::after {
+    content: "¡Oferta!";
+    background-color: var(--color-oferta);
+    color: var(--color-fondo);
+    font-size: 0.45em;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-left: 15px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(252, 238, 10, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.card:has(.card__button:hover) .card__title::after {
+    transform: translateX(10px) scale(1.1);
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card p:last-of-type {
+    color: var(--color-oferta);
+    font-weight: bold;
+    font-size: 1.2em;
+}

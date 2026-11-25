@@ -1,0 +1,31 @@
+.header {
+    background-image: linear-gradient(rgba(10, 10, 15, 0.5), rgba(10, 10, 15, 0.8)), url("../pexels-fidan-nazim-qizi-134456769-39083618.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    border-bottom: 2px solid var(--color-primario);
+    box-shadow: var(--glow-primario);
+    border-radius: 8px 8px 0 0;
+}
+
+.header__nav-list {
+    display: flex;
+    gap: 30px;
+    list-style-type: none;
+}
+
+.header__nav-link {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.header__nav-link:hover {
+    color: var(--color-secundario);
+    text-shadow: var(--glow-secundario);
+}

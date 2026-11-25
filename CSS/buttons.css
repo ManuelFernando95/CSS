@@ -1,0 +1,48 @@
+.card__button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: var(--color-primario);
+    border: 2px solid var(--color-primario);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card__button:hover {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+    color: var(--color-fondo);
+    box-shadow: var(--glow-secundario);
+    transform: translateY(-2px);
+}
+
+/* Botón destacado (oferta) */
+.card__button--destacado {
+    background-color: var(--color-oferta);
+    border-color: var(--color-oferta);
+    color: var(--color-fondo);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+.card__button--destacado:hover {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+    color: var(--color-fondo);
+    box-shadow: var(--glow-secundario);
+}
+
+/* Accesibilidad: foco visible con teclado */
+.card__button:focus-visible {
+    outline: 2px dashed var(--color-primario);
+    outline-offset: 3px;
+}
+
+.card__button:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}

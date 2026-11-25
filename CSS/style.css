@@ -1,12 +1,18 @@
+@import url("header.css");
+@import url("card.css");
+@import url("buttons.css");
+@import url("footer.css");
+@import url("aside.css");
+
 :root {
-    --color-primario: #00f0ff;
-    --color-secundario: #ff0055;
-    --color-fondo: #0a0a0f;
-    --color-tarjeta: #14141c;
-    --color-texto: #c5c9d6;
-    --color-oferta: #fcee0a;
-    --glow-primario: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
-    --glow-secundario: 0 0 10px rgba(255, 0, 85, 0.5), 0 0 20px rgba(255, 0, 85, 0.3);
+    --color-primario: #38bdf8;
+    --color-secundario: #a78bfa;
+    --color-fondo: #0c1220;
+    --color-tarjeta: #151d2e;
+    --color-texto: #e2e8f0;
+    --color-oferta: #fbbf24;
+    --glow-primario: 0 0 10px rgba(56, 189, 248, 0.35), 0 0 20px rgba(56, 189, 248, 0.15);
+    --glow-secundario: 0 0 10px rgba(167, 139, 250, 0.35), 0 0 20px rgba(167, 139, 250, 0.15);
 }
 
 * {
@@ -22,193 +28,4 @@ body {
     line-height: 1.6;
     padding: 20px;
     min-height: 100vh;
-}
-
-header {
-    background-image: linear-gradient(rgba(10, 10, 15, 0.5), rgba(10, 10, 15, 0.8)), url("pexels-fidan-nazim-qizi-134456769-39083618.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 40px 20px;
-    border-bottom: 2px solid var(--color-primario);
-    box-shadow: var(--glow-primario);
-    border-radius: 8px 8px 0 0;
-}
-
-nav ul {
-    display: flex;
-    gap: 30px;
-    list-style-type: none;
-}
-
-header nav ul li a {
-    color: var(--color-primario);
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition:
-        color 0.3s ease,
-        text-shadow 0.3s ease;
-}
-
-header nav ul li a:hover {
-    color: var(--color-secundario);
-    text-shadow: var(--glow-secundario);
-}
-
-aside {
-    background-color: var(--color-tarjeta);
-    padding: 20px;
-    margin: 20px 0;
-    border-left: 4px solid var(--color-secundario);
-    border-radius: 4px;
-}
-
-aside h2 {
-    color: var(--color-secundario);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-aside ul {
-    list-style-type: none;
-}
-
-aside ul li a {
-    color: var(--color-texto);
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px 0;
-    transition: all 0.3s ease;
-}
-
-aside ul li a::before {
-    content: "▹ ";
-    color: var(--color-primario);
-}
-
-aside ul li a:hover {
-    color: var(--color-fondo);
-    background-color: var(--color-primario);
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 3px;
-    box-shadow: var(--glow-primario);
-}
-
-aside ul li a:focus {
-    outline: 2px dashed var(--color-primario);
-}
-
-main {
-    padding: 20px 0;
-}
-
-article {
-    background-color: var(--color-tarjeta);
-    border: 1px solid #2a2a3a;
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 25px;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
-
-article:hover {
-    transform: translateY(-5px);
-    border-color: var(--color-primario);
-    box-shadow: 0 5px 20px rgba(0, 240, 255, 0.1);
-}
-
-article h2 {
-    color: var(--color-primario);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-article h2::after {
-    content: "¡Oferta!";
-    background-color: var(--color-oferta);
-    color: var(--color-fondo);
-    font-size: 0.45em;
-    font-weight: bold;
-    padding: 3px 10px;
-    border-radius: 4px;
-    margin-left: 15px;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px rgba(252, 238, 10, 0.5);
-    transition: transform 0.3s ease;
-}
-
-article:has(.btn-comprar:hover) h2::after {
-    transform: translateX(10px) scale(1.1);
-}
-
-article p {
-    margin-bottom: 10px;
-}
-
-article p:last-of-type {
-    color: var(--color-oferta);
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-.btn-comprar {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 24px;
-    background-color: transparent;
-    color: var(--color-primario);
-    border: 2px solid var(--color-primario);
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn-comprar:hover {
-    background-color: var(--color-secundario);
-    border-color: var(--color-secundario);
-    color: #ffffff;
-    box-shadow: var(--glow-secundario);
-    transform: translateY(-2px);
-}
-
-.btn-comprar:active {
-    transform: translateY(2px);
-    box-shadow: none;
-}
-
-footer {
-    background-color: var(--color-tarjeta);
-    color: var(--color-texto);
-    padding: 30px 20px;
-    margin-top: 40px;
-    border-top: 2px solid var(--color-secundario);
-    border-radius: 0 0 8px 8px;
-    text-align: center;
-}
-
-footer p {
-    margin-bottom: 15px;
-}
-
-footer a {
-    color: var(--color-primario);
-    text-decoration: none;
-    margin: 0 10px;
-    transition:
-        color 0.3s ease,
-        text-shadow 0.3s ease;
-}
-
-footer a:hover {
-    color: var(--color-secundario);
-    text-shadow: var(--glow-secundario);
 }

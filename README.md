@@ -144,3 +144,26 @@ Inyectar adornos desde CSS es una buena práctica porque mantiene el código ord
 * El archivo HTML queda limpio y solo se encarga de la estructura y el contenido real, sin llenarse de etiquetas div o span vacías que solo sirven para decorar 📄.
 * Si más adelante quiero cambiar el texto de una etiqueta de "Oferta" por "Nuevo" en veinte productos distintos, solo cambio una línea en el CSS en lugar de editar tarjeta por tarjeta en el HTML ⚡.
 * Los lectores de pantalla no se confunden leyendo elementos que son puramente decorativos.
+
+## Hallazgos: Arquitectura BEM y Modularidad 🧩
+
+### 1. ¿Qué significa BEM y cómo se escribe?
+BEM significa Bloque, Elemento y Modificador (por sus siglas en inglés: Block, Element, Modifier). Es una forma de nombrar las clases en CSS para que el código sea ordenado, fácil de leer y reutilizable.
+
+Así es como se escribe en el código:
+* **Bloque (`.bloque`):** Es el componente principal e independiente, el que tiene sentido por sí mismo. Por ejemplo: `.card` o `.btn`.
+* **Elemento (`.bloque__elemento`):** Es una pieza interna que forma parte del bloque y no funciona sola. Se une al nombre del bloque usando dos guiones bajos (`__`). Por ejemplo: `.card__image`, `.card__title` o `.card__price`.
+* **Modificador (`.bloque--modificador`):** Sirve para darle una variación visual o un estado diferente a un bloque o elemento. Se separa usando dos guiones medios (`--`). Por ejemplo: `.card--destacada` o `.btn--secundario`.
+
+### 2. ¿Por qué dividir el CSS facilita el trabajo en equipo? 🤝
+Separar un archivo de estilos enorme en archivos más pequeños por cada componente (como `tarjeta.css` o `botones.css`) ayuda mucho cuando varias personas programan al mismo tiempo:
+* **Evita choques en Git:** Si una persona está arreglando los botones y otra está diseñando las tarjetas, cada quien trabaja en su propio archivo sin pisar el código del otro.
+* **Encontrar errores es más rápido:** Si algo se ve mal en una tarjeta, vas directo a `tarjeta.css` en lugar de perder tiempo buscando entre cientos o miles de líneas de código.
+* **Orden al crecer:** Si el proyecto necesita componentes nuevos, simplemente se crean archivos nuevos sin desordenar lo que ya estaba funcionando.
+
+### 3. ¿Cómo evita BEM la "guerra de especificidad"? 🎯
+Cuando escribimos CSS tradicional, solemos encadenar muchas etiquetas juntas (como `.catalogo .producto div h2`). Esto hace que los selectores pesen demasiado y, si luego queremos cambiar un estilo, terminamos forzándolo con `!important` o escribiendo selectores todavía más largos.
+
+BEM soluciona este problema manteniendo una especificidad plana:
+* **Todo pesa lo mismo:** Como cada pieza tiene su propia clase (ej. `.card__title` en vez de `.card h2`), casi todas las reglas dependen de una sola clase y tienen el mismo peso básico (10 puntos).
+* **Sin sorpresas en la cascada:** Al no tener selectores anidados, los estilos de un componente no afectan por accidente a otro, y aplicar una variación como `.card--destacada` funciona de forma limpia y predecible.
